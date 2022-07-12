@@ -62,7 +62,7 @@ if project == 'PREDICTION':
         query = np.array([agent_id, slot, gender, storage, distance, collection_time, patient_from, patient_to, agent_before])
         query = query.reshape(1, 9)
 
-        result = model.predict(query)
+   result = model.predict(query)
 
         if result == 24:
             st.success(f'Agent will reached within {24} minutes')
