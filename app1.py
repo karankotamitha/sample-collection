@@ -77,36 +77,3 @@ if project == 'PREDICTION':
         else:
             st.success(f'Agent will reached within {64} minutes')
             st.write('Your Location is to far')
-
-if project == 'HOME':
-    st.image('https://upload.wikimedia.org/wikipedia/commons/6/62/Latitude_and_Longitude_of_the_Earth.svg')
-    if st.checkbox('HOW TO CALCULATE LATITUDES AND LONGITUDES ?'):
-        st.subheader('STEP 1 : Open Maps\n')
-        st.image('https://raw.githubusercontent.com/datasciritwik/test/main/step1.png')
-        st.subheader('STEP 2 : Choose Agent Location then select coordinates\n')
-        st.image('https://raw.githubusercontent.com/datasciritwik/test/main/Agent.png')
-        st.write('Select and copy the coordinates appears on sidebar, eg: 17.431024, 78.373442')
-        st.subheader('STEP 3 : Choose Patient Location then select coordinates\n')
-        st.image('https://raw.githubusercontent.com/datasciritwik/test/main/patient.png')
-        st.write('Select and copy the coordinates appears on sidebar, eg: 17.440018, 78.356908')
-        st.subheader('STEP 4 : Input those coordinates into our formula')
-    st.write("Click Above only you don't know how to calculate latitudes and longitudes else select below !")
-    if st.checkbox('SHOW FORMULA'):
-        st.subheader('HAVERSINE DISTANCE FORMULA')
-        lat1 = round((st.number_input('AGENT LATITUDE')), 6)
-        st.write('Enter up to minimum six decimal places')
-        lon1 = round((st.number_input('AGENT LONGITUDE')), 6)
-        st.write('Enter up to minimum six decimal places')
-        lat2 = round((st.number_input('PATIENT LATITUDE')), 6)
-        st.write('Enter up to minimum six decimal places')
-        lon2 = round((st.number_input('PATIENT LONGITUDE')), 6)
-        st.write('Enter up to minimum six decimal places')
-
-        loc1 = (lat1, lon1)
-        loc2 = (lat2, lon2)
-        if st.checkbox('Show Coordinates'):
-            st.write('Agent Location Coordinates', loc1)
-            st.write('Patient Location Coordinates', loc2)
-        if st.button('Calculate'):
-            distance = int(haversine(loc1, loc2, unit='m'))
-            st.success(f'Shortest Distance Between Agent and Patient is {distance} meters')
